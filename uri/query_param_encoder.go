@@ -61,6 +61,10 @@ func (e *queryParamEncoder) encodeArray() error {
 			return nil
 		}
 
+		if len(e.items) == 0 {
+			return nil
+		}
+
 		const sep = ","
 		for _, v := range e.items {
 			if err := checkNotContains(v, sep); err != nil {
