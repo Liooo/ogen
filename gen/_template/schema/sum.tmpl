@@ -13,8 +13,8 @@ type {{ $.Name }}Type string
 
 // Possible values for {{ $.Name }}Type.
 const (
-	{{- range $s := $.SumOf }}
-		{{ $s.Name }}{{ $.Name }} {{ $.Name }}Type = {{ quote $s.Go }}
+	{{- range $s := $.SumSpec.Mapping }}
+		{{ $s.Type.Name }}{{ $.Name }} {{ $.Name }}Type = {{ quote $s.Key }}
 	{{- end }}
 )
 
